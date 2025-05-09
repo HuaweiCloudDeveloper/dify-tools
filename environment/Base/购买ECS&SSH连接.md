@@ -1,5 +1,7 @@
 #### 华为云购买ECS规格推荐
 
+购买地址：[弹性云服务器 ECS](https://www.huaweicloud.com/product/ecs.html)
+
 | 项目           | 内容                                              | 说明                         |
 | -------------- | ------------------------------------------------- | ---------------------------- |
 | **计费模式**   | 按需计费                                          | 不用时可以关机，节省费用支出 |
@@ -13,11 +15,11 @@
 
 #### SSH工具PUTTY连接
 
-[下载地址](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)，根据本地操作系统选择对应安装包
+[下载地址](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)，根据本地操作系统选择对应安装包进行安装。
 
 **配置SSH**
 
-![image-20250508102012435](./assets/image-20250508102012435.png)
+![image-20250508102012435](../../assets/image-20250508102012435.png)
 
 
 
