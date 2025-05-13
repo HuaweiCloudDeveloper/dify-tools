@@ -42,7 +42,7 @@ class HuaweiCloudObsTool:
         
     @staticmethod 
     def delete_bucket(obs_client:ObsClient, bucket_name:str) -> bool:
-        """创建桶"""
+        """删除桶"""
         resp = obs_client.deleteBucket(bucket_name)
         if resp.status < 300:
             print(f"delete Bucket {bucket_name} created succeeded")
@@ -83,6 +83,16 @@ class HuaweiCloudObsTool:
         if resp.status < 300:
             print(f"Get Object object_key:{object_key},download_Path:{download_Path} succeeded")
             return resp.body.url
+        else: 
+            raise Exception(f"Failed to Get Object object_key:{object_key},errorMessage:{resp.errorMessage}")
+        
+    @staticmethod 
+    def get_object_bytes(obs_client:ObsClient, bucket_name:str,object_key) -> bytes:
+        """下载对象(二进制)"""
+        resp = obs_client.getObject(bucket_name = bucket_name,object_key = object_key,loadStreamInMemory=True)
+        if resp.status < 300:
+            print(f"Get Object object_key:{object_key} succeeded")
+            return resp.body.buffer
         else: 
             raise Exception(f"Failed to Get Object object_key:{object_key},errorMessage:{resp.errorMessage}")
     

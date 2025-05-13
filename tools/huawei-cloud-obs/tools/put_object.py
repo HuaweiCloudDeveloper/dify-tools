@@ -1,6 +1,6 @@
 from collections.abc import Generator
 from typing import Any
-import os,logging,io
+import os,logging,time,uuid
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage,ToolRuntime
 from dify_plugin.core.runtime import Session
@@ -14,31 +14,31 @@ logger = logging.getLogger(__name__)
 class HuaweiCloudObsPutObjectTool(Tool):
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
-        obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
+        obs_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
         bucket_name = tool_parameters.get("bucket_name")
         file:File | None = tool_parameters.get("file")
         file_url:str = tool_parameters.get("file_url")
-        object_key:str = tool_parameters.get("object_key")
+        object_key:str = tool_parameters.get("object_key","")
         if not file and not file_url:
             raise ValueError("file and file_url cannot be both empty")
-        
-        dify_url = os.getenv("DIFY_INNER_API_URL")
-        object_url = ""
-        if file_url:
-            response = requests.get(file_url, stream=True, verify=False)
-            response.raw.decode_content = True
-            response.raise_for_status()
-            object_url = HuaweiCloudObsTool.put_content(obj_client,bucket_name,object_key,response.raw)
+        file_extension = ""
+        if not file_url:
+            # 本地文件上传
+            file_url = file.url
+            file_extension = file.extension
+        else:
+            # 远程文件地址
+            filename = os.path.basename(file_url)
+            _, file_extension = os.path.splitext(filename)
 
-        if file:
-            # tmpFilePath = f"/dataset/{file.filename}"
-            # with open(tmpFilePath, "wb") as f:
-            #     f.write(file.blob)
-            # os.remove(tmpFilePath)
-            object_url = HuaweiCloudObsTool.put_content(obj_client,bucket_name,object_key,file.blob)
-            
-        if  object_url == "":
-            raise ValueError("file object url is empty")
+        if not file_url.startswith("http"):
+            file_url = self.runtime.credentials["dify_endpoint"] + file.url
 
-        print(f"Successfully put_object:{object_url}")
-        yield self.create_text_message(str(object_url))
+        response = requests.get(file_url, stream=True, verify=False)
+        response.raw.decode_content = True
+        response.raise_for_status() 
+        # 生成object_key
+        if not object_key:
+            object_key = time.strftime("%Y%m%d%H%M%S") + "-" + str(uuid.uuid4()) + file_extension        
+        object_url = HuaweiCloudObsTool.put_content(obs_client,bucket_name,object_key,response.raw)
+        yield self.create_json_message({"object_url":object_url,"object_key":object_key})

@@ -32,17 +32,6 @@ parameters:
       zh_Hans: 华为云OBS中的对象名称
     llm_description: 华为云OBS中的对象名
     form: llm
-  - name: download_path
-    type: string
-    required: true
-    label:
-      en_US: download path
-      zh_Hans: 本地文件路径
-    human_description:
-      en_US: File path to download.
-      zh_Hans: 本地文件路径
-    llm_description: 本地文件路径
-    form: llm
 extra:
   python:
     source: tools/get_object.py

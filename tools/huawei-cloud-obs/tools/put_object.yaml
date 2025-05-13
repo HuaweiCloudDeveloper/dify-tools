@@ -23,14 +23,14 @@ parameters:
     form: llm
   - name: object_key
     type: string
-    required: true
+    required: false
     label:
       en_US: Object Key
-      zh_Hans: 文件对象名称
+      zh_Hans: 对象存储Key
     human_description:
       en_US: Object Key in Huawei Cloud OBS.
-      zh_Hans: 华为云OBS中的对象名称
-    llm_description: 华为云OBS中的对象名
+      zh_Hans: 对象存储Key
+    llm_description: 华为云OBS中的对象存储Key
     form: llm
   - name: file_url
     type: string

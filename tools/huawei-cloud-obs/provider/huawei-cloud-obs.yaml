@@ -9,6 +9,19 @@ identity:
     zh_Hans: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
   icon: icon.svg
 credentials_for_provider:
+  dify_endpoint:
+    type: text-input
+    required: true
+    label:
+      en_US: DIFY Endpoint
+      zh_Hans: dify 服务地址
+    placeholder:
+      en_US: Please input your dify endpoint
+      zh_Hans: 请输入你的 dify 服务地址
+    help:
+      en_US: The endpoint for your dify service
+      zh_Hans: dify 服务的访问地址
+    url: https://docs.dify.ai/
   access_key_id:
     help:
       en_US: Get your AccessKeyID from Huawei Cloud OBS
