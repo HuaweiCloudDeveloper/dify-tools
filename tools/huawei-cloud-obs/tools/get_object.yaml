@@ -1,0 +1,37 @@
+identity:
+  name: get_object
+  author: yuez
+  label:
+    en_US: get object
+    zh_Hans: 下载对象
+description:
+  human:
+    en_US: get object
+    zh_Hans: 下载对象
+  llm: 提供华为云对象存储服务OBS的下载对象操作。
+parameters:
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    human_description:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    llm_description: 输入的OBS的桶名称。
+    form: llm
+  - name: object_key
+    type: string
+    required: true
+    label:
+      en_US: Object Key
+      zh_Hans: 文件对象名称
+    human_description:
+      en_US: Object Key in Huawei Cloud OBS.
+      zh_Hans: 华为云OBS中的对象名称
+    llm_description: 华为云OBS中的对象名
+    form: llm
+extra:
+  python:
+    source: tools/get_object.py

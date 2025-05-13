@@ -1,0 +1,36 @@
+version: 0.0.1
+type: plugin
+author: yuez
+name: huawei-cloud-obs
+label:
+  en_US: huawei-cloud-obs
+  ja_JP: huawei-cloud-obs
+  zh_Hans: huawei-cloud-obs
+  pt_BR: huawei-cloud-obs
+description:
+  en_US: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
+  ja_JP: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
+  zh_Hans: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
+  pt_BR: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/huawei-cloud-obs.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 0.1.0
+created_at: 2025-05-12T10:06:15.2559408+08:00
+privacy: PRIVACY.md
+verified: false

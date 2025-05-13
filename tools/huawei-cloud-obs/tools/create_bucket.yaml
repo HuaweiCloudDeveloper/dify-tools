@@ -1,0 +1,26 @@
+identity:
+  name: create_bucket
+  author: yuez
+  label:
+    en_US: create bucket
+    zh_Hans: 创建桶
+description:
+  human:
+    en_US: bucket name.
+    zh_Hans: 桶名称
+  llm: A tool for creating Huawei Cloud OBS buckets. The input should be the bucket name.
+parameters:
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    human_description:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    llm_description: bucket name
+    form: llm
+extra:
+  python:
+    source: tools/create_bucket.py

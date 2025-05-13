@@ -1,0 +1,59 @@
+identity:
+  name: put_object
+  author: yuez
+  label:
+    en_US: put object
+    zh_Hans: 对象上传
+description:
+  human:
+    en_US: Object upload.
+    zh_Hans: 对象上传
+  llm: 提供华为云对象存储服务OBS的对象上传操作。
+parameters:
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    human_description:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    llm_description: 输入的OBS的桶名称。
+    form: llm
+  - name: object_key
+    type: string
+    required: false
+    label:
+      en_US: Object Key
+      zh_Hans: 对象存储Key
+    human_description:
+      en_US: Object Key in Huawei Cloud OBS.
+      zh_Hans: 对象存储Key
+    llm_description: 华为云OBS中的对象存储Key
+    form: llm
+  - name: file_url
+    type: string
+    required: false
+    label:
+      en_US: file url
+      zh_Hans: 文件地址
+    human_description:
+      en_US: File address, including remote file address or local file path.
+      zh_Hans: 文件地址,包括远程文件地址或本地文件路径
+    llm_description: 输入的文件地址,包括远程文件地址或本地文件路径
+    form: llm
+  - name: file
+    type: file
+    required: false
+    label:
+      en_US: file
+      zh_Hans: 文件
+    human_description:
+      en_US: Files uploaded locally.
+      zh_Hans: 本地上传的文件
+    llm_description: 本地上传的文件对象
+    form: llm
+extra:
+  python:
+    source: tools/put_object.py

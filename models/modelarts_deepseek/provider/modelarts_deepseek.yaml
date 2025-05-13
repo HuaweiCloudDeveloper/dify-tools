@@ -1,0 +1,49 @@
+provider: modelarts_deepseek
+label:
+  en_US: Modelarts Deepseek
+description:
+  en_US: Models provided by modelarts_deepseek.
+  zh_Hans: Modelarts Deepseek 提供的模型。
+icon_small:
+  en_US: icon.svg
+icon_large:
+  en_US: icon.svg
+background: "#E5E7EB"
+help:
+  title:
+    en_US: Get your API Key from modelarts_deepseek
+    zh_Hans: 从 Modelarts Deepseek 获取 API Key
+  url:
+    en_US: https://console.huaweicloud.com/modelarts/?region=cn-southwest-2#/model-studio/authmanage
+supported_model_types:
+  - llm
+configurate_methods:
+  - predefined-model
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: endpoint_url
+      label:
+        en_US: API URL BASE
+      type: text-input
+      required: true
+      placeholder:
+        zh_Hans: 在此输入您的 API URL BASE,e.g. https://api.modelarts-maas.com/v1
+        en_US: Enter your API URL BASE,e.g. https://api.modelarts-maas.com/v1
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        zh_Hans: 在此输入您的 API Key
+        en_US: Enter your API Key
+models:
+  llm:
+    predefined:
+      - "models/llm/*.yaml"
+    position: "models/llm/_position.yaml"
+extra:
+  python:
+    provider_source: provider/modelarts_deepseek.py
+    model_sources:
+      - "models/llm/llm.py"
