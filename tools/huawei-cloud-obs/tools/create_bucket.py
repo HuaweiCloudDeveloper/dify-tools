@@ -13,4 +13,4 @@ class HuaweiCloudObsCreateBucketTool(Tool):
         obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
         if not HuaweiCloudObsTool.head_bucket(obj_client,bucket_name):
             HuaweiCloudObsTool.create_bucket(obj_client,bucket_name)
-        yield self.create_text_message("success")
+        yield self.create_text_message("ok")

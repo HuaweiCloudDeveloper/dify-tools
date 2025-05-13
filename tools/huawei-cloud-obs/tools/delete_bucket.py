@@ -15,4 +15,4 @@ class HuaweiCloudObsDeleteBucketTool(Tool):
         obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
         if HuaweiCloudObsTool.head_bucket(obj_client,bucket_name) == False:
             HuaweiCloudObsTool.delete_bucket(obj_client,bucket_name)
-        yield self.create_json_message({"result": "success"})
+        yield self.create_text_message("ok")

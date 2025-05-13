@@ -16,5 +16,6 @@ class HuaweiCloudObsGetObjectTool(Tool):
         obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
         bucket_name = tool_parameters.get("bucket_name")
         object_key:str = tool_parameters.get("object_key")
-        object_bytes = HuaweiCloudObsTool.get_object_bytes(obj_client, bucket_name,object_key)
-        yield self.create_blob_message(object_bytes,meta={"mime_type": "application/octet-stream",},)
+        download_Path = f'/tmp/{object_key}'
+        object_url = HuaweiCloudObsTool.get_object(obj_client, bucket_name,object_key,download_Path)
+        yield self.create_text_message(object_url)
