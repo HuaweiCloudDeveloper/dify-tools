@@ -1,0 +1,26 @@
+identity:
+  name: delete_bucket
+  author: yuez
+  label:
+    en_US: delete bucket
+    zh_Hans: 删除桶
+description:
+  human:
+    en_US: bucket name.
+    zh_Hans: 桶名称。
+  llm: A tool for delete Huawei Cloud OBS buckets. The input should be the bucket name.
+parameters:
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    human_description:
+      en_US: bucket name
+      zh_Hans: 桶名称
+    llm_description: bucket name
+    form: llm
+extra:
+  python:
+    source: tools/delete_bucket.py

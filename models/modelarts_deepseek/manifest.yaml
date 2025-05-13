@@ -1,0 +1,42 @@
+version: 0.0.1
+type: plugin
+author: yuez
+name: modelarts_deepseek
+label:
+  en_US: modelarts_deepseek
+  ja_JP: modelarts_deepseek
+  zh_Hans: modelarts_deepseek
+  pt_BR: modelarts_deepseek
+description:
+  en_US: Huawei Cloud ModeArts DeepSeek Model Service
+  ja_JP: Huawei Cloud ModeArts DeepSeek Model Service
+  zh_Hans: Huawei Cloud ModeArts DeepSeek Model Service
+  pt_BR: Huawei Cloud ModeArts DeepSeek Model Service
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: true
+      llm: true
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+plugins:
+  models:
+    - provider/modelarts_deepseek.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 0.5.0
+created_at: 2025-05-10T23:51:35.5323968+08:00
+privacy: PRIVACY.md
+verified: false
