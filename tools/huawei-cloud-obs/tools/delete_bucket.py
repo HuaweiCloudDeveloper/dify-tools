@@ -12,7 +12,7 @@ class HuaweiCloudObsDeleteBucketTool(Tool):
         
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         bucket_name = tool_parameters.get("bucket_name")
-        obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
-        if HuaweiCloudObsTool.head_bucket(obj_client,bucket_name) == False:
-            HuaweiCloudObsTool.delete_bucket(obj_client,bucket_name)
+        obs_tool = HuaweiCloudObsTool(self.runtime.credentials)
+        if obs_tool.head_bucket(bucket_name) == False:
+            obs_tool.delete_bucket(bucket_name)
         yield self.create_text_message("ok")

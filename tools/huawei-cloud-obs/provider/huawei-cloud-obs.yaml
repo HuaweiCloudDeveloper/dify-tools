@@ -5,8 +5,8 @@ identity:
     en_US: huawei-cloud-obs
     zh_Hans: huawei-cloud-obs
   description:
-    en_US: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
-    zh_Hans: 提供dify应用连接和操作华为云d对象存储服务OBS的常用操作。
+    en_US: Provide common operations for connecting the Dify application to Huawei Cloud Object Storage Service (OBS).
+    zh_Hans: 提供dify应用连接华为云对象存储服务OBS的常用操作。
   icon: icon.svg
 credentials_for_provider:
   dify_endpoint:
