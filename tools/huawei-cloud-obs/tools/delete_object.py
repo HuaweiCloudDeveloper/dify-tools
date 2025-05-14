@@ -8,7 +8,7 @@ from tools.base import HuaweiCloudObsTool
 
 logger = logging.getLogger(__name__)
 
-class HuaweiCloudObsDeleteObjectTool(HuaweiCloudObsTool,Tool):
+class HuaweiCloudObsDeleteObjectTool(Tool):
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         obs_tool = HuaweiCloudObsTool(self.runtime.credentials)
