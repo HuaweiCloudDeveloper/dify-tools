@@ -16,8 +16,8 @@
 
 | 项目名称            | 描述                                                         | 链接 | 依赖                                                         | 作者 |
 | ------------------- | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | :--: |
-| 华为云OBS上传示例 | 提供华为云OBS上传的示例,前提:对象桶已创建 | [华为云OBS上传示例.yml](workflow/obs_example/华为云OBS上传示例.yml)    | huawei-cloud-obs | yuez |
-| 华为云OBS下载示例 | 提供华为云OBS下载的示例,前提:对象桶已创建且ACL公共可读 | [华为云OBS下载示例.yml](workflow/obs_example/华为云OBS下载示例.yml)    | huawei-cloud-obs | yuez |
+| 华为云OBS上传示例 | 提供华为云OBS上传的示例,前提:对象桶已创建 | [huawei_cloud_obs_upload_example.yml](workflow/obs_example/huawei_cloud_obs_upload_example.yml)    | huawei-cloud-obs | yuez |
+| 华为云OBS下载示例 | 提供华为云OBS下载的示例,前提:对象桶已创建且ACL公共可读 | [huawei_cloud_obs_download_example.yml](workflow/obs_example/huawei_cloud_obs_download_example.yml)    | huawei-cloud-obs | yuez |
 | PDF科研文献翻译助手 | 1. 在华为云商店一键部署PDFMathTranslate<br />2. 在dify创建工作流使用PDFMathTranslate |      | [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) | yuez |
 
 
