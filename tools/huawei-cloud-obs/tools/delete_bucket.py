@@ -3,7 +3,6 @@ from typing import Any
 import logging
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
-from obs import ObsClient
 from tools.base import HuaweiCloudObsTool
 
 logger = logging.getLogger(__name__)

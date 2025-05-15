@@ -2,10 +2,8 @@ from collections.abc import Generator
 from typing import Any
 import os,logging,time,uuid
 from dify_plugin import Tool
-from dify_plugin.entities.tool import ToolInvokeMessage,ToolRuntime
-from dify_plugin.core.runtime import Session
-from dify_plugin.file.file import File, FileType
-from obs import ObsClient
+from dify_plugin.entities.tool import ToolInvokeMessage
+from dify_plugin.file.file import File
 from tools.base import HuaweiCloudObsTool
 import requests
 

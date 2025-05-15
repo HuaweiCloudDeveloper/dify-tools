@@ -1,6 +1,7 @@
 from typing import Any
 from obs import ObsClient
 from obs import CreateBucketHeader, HeadPermission
+from obs.model import ObjectStream
 import logging
 
 logger = logging.getLogger(__name__)
@@ -59,6 +60,7 @@ class HuaweiCloudObsTool:
             print(f"Put Content object_key:{object_key} succeeded")
             return resp.body.objectUrl
         else: 
+            print(f"Failed to Put Content object_key:{object_key},resp:{resp}")
             raise Exception(f"Failed to Put Content object_key:{object_key},errorMessage:{resp.errorMessage}")
 
      
@@ -75,22 +77,22 @@ class HuaweiCloudObsTool:
             raise Exception(f"Failed to Put File object_key:{object_key},errorMessage:{resp.errorMessage}")
         
      
-    def get_object(self, bucket_name:str,object_key,download_Path) -> str:
+    def get_object(self, bucket_name:str,object_key,download_Path) -> ObjectStream:
         """下载对象(文件)"""
         resp = self.obs_client.getObject(bucket_name,object_key,download_Path)
         if resp.status < 300:
             print(f"Get Object object_key:{object_key},download_Path:{download_Path} succeeded")
-            return resp.body.url
+            return resp.body
         else: 
             raise Exception(f"Failed to Get Object object_key:{object_key},errorMessage:{resp.errorMessage}")
         
      
-    def get_object_bytes(self, bucket_name:str,object_key) -> bytes:
+    def get_object_bytes(self, bucket_name:str,object_key:str) -> ObjectStream:
         """下载对象(二进制)"""
-        resp = self.obs_client.getObject(bucket_name = bucket_name,object_key = object_key,loadStreamInMemory=True)
+        resp = self.obs_client.getObject(bucketName= bucket_name,objectKey= object_key,loadStreamInMemory=True)
         if resp.status < 300:
             print(f"Get Object object_key:{object_key} succeeded")
-            return resp.body.buffer
+            return resp.body
         else: 
             raise Exception(f"Failed to Get Object object_key:{object_key},errorMessage:{resp.errorMessage}")
     

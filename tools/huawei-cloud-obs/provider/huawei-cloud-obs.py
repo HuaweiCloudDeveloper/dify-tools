@@ -22,5 +22,6 @@ class HuaweiCloudObsProvider(ToolProvider):
                 raise ToolProviderCredentialValidationError("HuaweiCloud OBS ServerUrl is required.")
             server = credentials.get("server_url")
             obsClient = ObsClient(access_key_id=ak, secret_access_key=sk, server=server)
+            obsClient.close()
         except Exception as e:
             raise ToolProviderCredentialValidationError(str(e))
