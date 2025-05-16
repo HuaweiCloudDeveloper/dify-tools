@@ -1,20 +1,20 @@
 from collections.abc import Generator
 from typing import Any
-import logging
 from dify_plugin import Tool
-from dify_plugin.entities.tool import ToolInvokeMessage,ToolRuntime
-from dify_plugin.core.runtime import Session
-from dify_plugin.file.file import File, FileType
-from obs import ObsClient
+from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.base import HuaweiCloudObsTool
-
-logger = logging.getLogger(__name__)
+from obs.model import ObjectStream
+import time
 
 class HuaweiCloudObsGetObjectTool(Tool):
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
-        obj_client:ObsClient = HuaweiCloudObsTool.crete_obs_client(self.runtime.credentials)
-        bucket_name = tool_parameters.get("bucket_name")
+        obs_tool = HuaweiCloudObsTool(self.runtime.credentials)
+        bucket_name:str = tool_parameters.get("bucket_name")
         object_key:str = tool_parameters.get("object_key")
-        object_bytes = HuaweiCloudObsTool.get_object_bytes(obj_client, bucket_name,object_key)
-        yield self.create_blob_message(object_bytes,meta={"mime_type": "application/octet-stream",},)
+        # day_str = time.strftime("%Y%m%d")
+        # download_Path = f'/tmp/{day_str}/{object_key}'
+        # object_path = obs_tool.get_object(bucket_name,object_key,download_Path)
+        # yield self.create_text_message(object_path)
+        result:ObjectStream = obs_tool.get_object_bytes(bucket_name,object_key)
+        yield self.create_blob_message(blob=result.buffer,meta={'mime_type': result.contentType})

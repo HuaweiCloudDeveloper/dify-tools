@@ -1,0 +1,354 @@
+app:
+  description: 华为云OBS测试
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 华为云OBS上传示例
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: yuez/huawei-cloud-obs:0.0.3@7e0fc064eea89758f262db72b0db9354ffdd7691af71c08453c9e349ec14f9a6
+kind: app
+version: 0.2.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1747128506435-source-1747049416709-target
+      source: '1747128506435'
+      sourceHandle: source
+      target: '1747049416709'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1747225168808-source-1747128506435-target
+      source: '1747225168808'
+      sourceHandle: source
+      target: '1747128506435'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1747048966075-source-1747225168808-target
+      source: '1747048966075'
+      sourceHandle: source
+      target: '1747225168808'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 桶名称
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: bucket_name
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          - audio
+          - video
+          allowed_file_upload_methods:
+          - local_file
+          label: 上传文件
+          max_length: 48
+          options: []
+          required: false
+          type: file
+          variable: upload_file
+        - label: 文件地址
+          max_length: 128
+          options: []
+          required: false
+          type: text-input
+          variable: file_url
+        - label: 对象KEY
+          max_length: 128
+          options: []
+          required: false
+          type: text-input
+          variable: object_key
+      height: 168
+      id: '1747048966075'
+      position:
+        x: -70
+        y: -74
+      positionAbsolute:
+        x: -70
+        y: -74
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: bucket name
+            ja_JP: bucket name
+            pt_BR: bucket name
+            zh_Hans: 桶名称
+          label:
+            en_US: bucket name
+            ja_JP: bucket name
+            pt_BR: bucket name
+            zh_Hans: 桶名称
+          llm_description: 输入的OBS的桶名称。
+          max: null
+          min: null
+          name: bucket_name
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Object Key in Huawei Cloud OBS.
+            ja_JP: Object Key in Huawei Cloud OBS.
+            pt_BR: Object Key in Huawei Cloud OBS.
+            zh_Hans: 对象存储Key
+          label:
+            en_US: Object Key
+            ja_JP: Object Key
+            pt_BR: Object Key
+            zh_Hans: 对象存储Key
+          llm_description: 华为云OBS中的对象存储Key
+          max: null
+          min: null
+          name: object_key
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: File address, including remote file address or local file path.
+            ja_JP: File address, including remote file address or local file path.
+            pt_BR: File address, including remote file address or local file path.
+            zh_Hans: 文件地址,包括远程文件地址或本地文件路径
+          label:
+            en_US: file url
+            ja_JP: file url
+            pt_BR: file url
+            zh_Hans: 文件地址
+          llm_description: 输入的文件地址,包括远程文件地址或本地文件路径
+          max: null
+          min: null
+          name: file_url
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Files uploaded locally.
+            ja_JP: Files uploaded locally.
+            pt_BR: Files uploaded locally.
+            zh_Hans: 本地上传的文件
+          label:
+            en_US: file
+            ja_JP: file
+            pt_BR: file
+            zh_Hans: 文件
+          llm_description: 本地上传的文件对象
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: file
+        params:
+          bucket_name: ''
+          file: ''
+          file_url: ''
+          object_key: ''
+        provider_id: yuez/huawei-cloud-obs/huawei-cloud-obs
+        provider_name: yuez/huawei-cloud-obs/huawei-cloud-obs
+        provider_type: builtin
+        selected: false
+        title: 对象上传
+        tool_configurations: {}
+        tool_description: 对象上传
+        tool_label: 对象上传
+        tool_name: put_object
+        tool_parameters:
+          bucket_name:
+            type: mixed
+            value: '{{#1747048966075.bucket_name#}}'
+          file:
+            type: variable
+            value:
+            - '1747048966075'
+            - upload_file
+          file_url:
+            type: mixed
+            value: '{{#1747048966075.file_url#}}'
+          object_key:
+            type: mixed
+            value: '{{#1747048966075.object_key#}}'
+        type: tool
+      height: 54
+      id: '1747225168808'
+      position:
+        x: 275
+        y: -74
+      positionAbsolute:
+        x: 275
+        y: -74
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1747128506435'
+          - object_key
+          variable: 对象Key
+        - value_selector:
+          - '1747128506435'
+          - object_url
+          variable: 对象Url
+        selected: false
+        title: 对象地址
+        type: end
+      height: 116
+      id: '1747049416709'
+      position:
+        x: 960
+        y: -74
+      positionAbsolute:
+        x: 960
+        y: -74
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: list[dict]) -> dict:     \n    return arg1[0]\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          object_key:
+            children: null
+            type: string
+          object_url:
+            children: null
+            type: string
+        selected: false
+        title: JSON解析结果
+        type: code
+        variables:
+        - value_selector:
+          - '1747225168808'
+          - json
+          variable: arg1
+      height: 54
+      id: '1747128506435'
+      position:
+        x: 597
+        y: -74
+      positionAbsolute:
+        x: 597
+        y: -74
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 170
+      y: 279.5
+      zoom: 1
