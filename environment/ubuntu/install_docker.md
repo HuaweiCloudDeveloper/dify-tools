@@ -33,3 +33,33 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 sudo apt-get update
 sudo apt-get install -y docker-ce 
 ```
+
+#### 启动并设置开启启动
+
+```shell
+sudo systemctl enable --now docker
+```
+
+#### 配置镜像加速器
+
+```shell
+vi /etc/docker/daemon.json
+# 粘贴以下配置,保存退出
+{
+    "registry-mirrors": [ "https://7046a839d8b94ca190169bc6f8b55644.mirror.swr.myhuaweicloud.com"]
+}
+```
+
+#### 重新启动
+
+```shell
+systemctl restart docker
+```
+
+#### 查看docker信息
+
+```shell
+docker info
+```
+
+可以看到docker版本和镜像加速器都已经生效。
