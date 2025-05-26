@@ -1,0 +1,475 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 科学论文PDF翻译助手
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.2.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: loop
+        targetType: http-request
+      id: 1747882024175--1747882339414-target
+      source: '1747882024175'
+      sourceHandle: source
+      target: '1747882339414'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1747309216938-source-1747881988364-target
+      source: '1747309216938'
+      sourceHandle: source
+      target: '1747881988364'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: end
+      id: 1747882339414-source-1747900604360-target
+      source: '1747882339414'
+      sourceHandle: source
+      target: '1747900604360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747882024175'
+        sourceType: loop-start
+        targetType: code
+      id: 1747882024175start-source-1747903273440-target
+      source: 1747882024175start
+      sourceHandle: source
+      target: '1747903273440'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1747308980054-source-1747309216938-target
+      source: '1747308980054'
+      sourceHandle: source
+      target: '1747309216938'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: loop
+        targetType: http-request
+      id: 1747882024175-source-17479064065390-target
+      source: '1747882024175'
+      sourceHandle: source
+      target: '17479064065390'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: end
+      id: 17479064065390-source-1747900604360-target
+      source: '17479064065390'
+      sourceHandle: source
+      target: '1747900604360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: 1747881988364-source-1747882024175-target
+      source: '1747881988364'
+      sourceHandle: source
+      target: '1747882024175'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions:
+          - .pdf
+          allowed_file_types:
+          - custom
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 源文件
+          max_length: 48
+          options: []
+          required: true
+          type: file
+          variable: source_file
+        - label: 服务地址
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: server_url
+      height: 116
+      id: '1747308980054'
+      position:
+        x: -154.3690115326326
+        y: 167.08732564491157
+      positionAbsolute:
+        x: -154.3690115326326
+        y: 167.08732564491157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-365
+            key: data
+            type: text
+            value: '{"lang_in":"en","lang_out":"zh","service":"bing","thread":4}'
+          - file:
+            - '1747308980054'
+            - source_file
+            id: key-value-390
+            key: file
+            type: file
+            value: ''
+          - id: key-value-165
+            key: ''
+            type: text
+            value: ''
+          type: form-data
+        desc: 请求PDF翻译服务
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 1
+          retry_enabled: false
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 添加翻译任务
+        type: http-request
+        url: '{{#1747308980054.server_url#}}/v1/translate'
+        variables: []
+      height: 141
+      id: '1747309216938'
+      position:
+        x: 248.04199973328986
+        y: 167.08732564491157
+      positionAbsolute:
+        x: 248.04199973328986
+        y: 167.08732564491157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\nimport json\ndef main(arg1: str) -> dict:\n    return json.loads(arg1)\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          id:
+            children: null
+            type: string
+        selected: false
+        title: 解析结果
+        type: code
+        variables:
+        - value_selector:
+          - '1747309216938'
+          - body
+          variable: arg1
+      height: 54
+      id: '1747881988364'
+      position:
+        x: 591.7886689172627
+        y: 167.08732564491157
+      positionAbsolute:
+        x: 591.7886689172627
+        y: 167.08732564491157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        break_conditions:
+        - comparison_operator: is
+          id: 9cb57b1d-b29a-40d6-b610-bbf9a5c37ae9
+          value: SUCCESS
+          varType: string
+          variable_selector:
+          - '1747903273440'
+          - state
+        desc: ''
+        error_handle_mode: terminated
+        height: 152
+        logical_operator: and
+        loop_count: 100
+        loop_variables: []
+        selected: false
+        start_node_id: 1747882024175start
+        title: 循环查询进度
+        type: loop
+        width: 411
+      height: 152
+      id: '1747882024175'
+      position:
+        x: 922.7614418539827
+        y: 167.08732564491157
+      positionAbsolute:
+        x: 922.7614418539827
+        y: 167.08732564491157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 411
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1747882024175start
+      parentId: '1747882024175'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 946.7614418539827
+        y: 235.08732564491157
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 下载mono类型文件
+        type: http-request
+        url: '{{#1747308980054.server_url#}}/v1/translate/{{#1747881988364.id#}}/mono'
+        variables: []
+      height: 162
+      id: '1747882339414'
+      position:
+        x: 1497.575297266601
+        y: 75.89728459794782
+      positionAbsolute:
+        x: 1497.575297266601
+        y: 75.89728459794782
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1747882339414'
+          - files
+          variable: mono
+        - value_selector:
+          - '17479064065390'
+          - files
+          variable: dual
+        selected: false
+        title: 结束
+        type: end
+      height: 116
+      id: '1747900604360'
+      position:
+        x: 1914.3848327166152
+        y: 181.08732564491157
+      positionAbsolute:
+        x: 1914.3848327166152
+        y: 181.08732564491157
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\nimport time\n\ndef main(arg1: str, arg2: str) -> dict:\n\
+          \    url = f'{arg1}/v1/translate/{arg2}'\n    response = requests.get(url)\n\
+          \    res = response.json()\n    state = res['state']\n    if state == 'PROGRESS':\n\
+          \        time.sleep(5)\n    return {\n        \"state\": state\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747882024175'
+        outputs:
+          state:
+            children: null
+            type: string
+        selected: false
+        title: 请求进度
+        type: code
+        variables:
+        - value_selector:
+          - '1747308980054'
+          - server_url
+          variable: arg1
+        - value_selector:
+          - '1747881988364'
+          - id
+          variable: arg2
+      height: 54
+      id: '1747903273440'
+      parentId: '1747882024175'
+      position:
+        x: 121.17927545070324
+        y: 65
+      positionAbsolute:
+        x: 1043.940717304686
+        y: 232.08732564491157
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 下载dual类型文件
+        type: http-request
+        url: '{{#1747308980054.server_url#}}/v1/translate/{{#1747881988364.id#}}/dual'
+        variables: []
+      height: 162
+      id: '17479064065390'
+      position:
+        x: 1497.575297266601
+        y: 302.84375477302035
+      positionAbsolute:
+        x: 1497.575297266601
+        y: 302.84375477302035
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -611.5129480737553
+      y: 273.7611912230021
+      zoom: 0.6597539553864471
