@@ -1,0 +1,7 @@
+[project]
+name = "dify-tools"
+version = "0.1.0"
+description = "dify tools for HuaweiCloud"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
