@@ -6,9 +6,10 @@
 
 ## 前置条件
 
-- 华为云账号
-- Dify环境（可以通过华为云商店一键部署社区版）
+- [华为云账号](https://www.huaweicloud.com/)
+- [Dify环境](https://marketplace.huaweicloud.com/)（可以通过华为云商店一键部署社区版）
 - 基本的Linux环境使用经验
+- [开发环境搭建](environment/development_environment_install.md)，可选，如果你有在鲲鹏服务器开发需求的话可安装
 
 ## 技术资源
 
@@ -18,7 +19,7 @@
 | ------------------- | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | :--: |
 | 华为云OBS上传示例 | 提供华为云OBS上传的示例,前提:对象桶已创建 | [huawei_cloud_obs_upload_example.yml](workflow/obs_example/huawei_cloud_obs_upload_example.yml)    | huawei-cloud-obs | yuez |
 | 华为云OBS下载示例 | 提供华为云OBS下载的示例,前提:对象桶已创建且ACL公共可读 | [huawei_cloud_obs_download_example.yml](workflow/obs_example/huawei_cloud_obs_download_example.yml)    | huawei-cloud-obs | yuez |
-| PDF科研文献翻译助手 | 1. 在华为云商店一键部署PDFMathTranslate<br />2. 在dify创建工作流使用PDFMathTranslate |      | [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) | yuez |
+| PDF科研文献翻译助手 | 1. 在华为云商店一键部署PDFMathTranslate<br />2. 在dify创建工作流使用PDFMathTranslate | [pdf_document_translator.yml](workflow/pdf2zh/pdf_document_translator.yml)     | [PDFMathTranslate](https://github.com/Byaidu/PDFMathTranslate) | yuez |
 
 
 

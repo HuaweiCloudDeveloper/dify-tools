@@ -21,7 +21,7 @@ sudo sed -i 's+$releasever+9.9+' /etc/yum.repos.d/docker-ce.repo
 #### 安装1.28版本
 
 ```shell
-sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf install -y docker-ce
 ```
 
 #### 启动并设置开启启动
