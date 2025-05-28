@@ -1,20 +1,23 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+name: Bug report
+about: Report a problem you are experiencing
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+/kind bug
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks!
+-->
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**What happened**:
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**What you expected to happen**:
+
+**How to reproduce it (as minimally and precisely as possible)**:
+
+**Anything else we need to know?**:
+
+**Environment:**
+
+- OS (e.g. from `/etc/os-release`):
+- Others:
