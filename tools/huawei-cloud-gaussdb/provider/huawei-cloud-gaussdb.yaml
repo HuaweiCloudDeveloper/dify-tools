@@ -1,0 +1,54 @@
+identity:
+  author: yuez
+  name: huawei-cloud-gaussdb
+  label:
+    en_US: huawei-cloud-gaussdb
+    zh_Hans: huawei-cloud-gaussdb
+    pt_BR: huawei-cloud-gaussdb
+  description:
+    en_US: dify工作流中访问华为云Gaussdb云服务
+    zh_Hans: dify工作流中访问华为云Gaussdb云服务
+    pt_BR: dify工作流中访问华为云Gaussdb云服务
+  icon: icon.svg
+credentials_for_provider:
+  ENDPOINT:
+    label:
+      en_US: ENDPOINT
+      zh_Hans: 数据库地址
+    placeholder:
+      en_US: Please input your Huawei Cloud GaussDB HOST:PORT
+      zh_Hans: 请输入你的数据库地址,格式：host:port
+    required: true
+    type: text-input
+  USER_NAME:
+    label:
+      en_US: USER_NAME
+      zh_Hans: USER_NAME
+    placeholder:
+      en_US: Please input your Huawei Cloud GaussDB USER_NAME
+      zh_Hans: 请输入你的 华为云GaussDB用户名
+    required: true
+    type: text-input
+  PASSWORD:
+    label:
+      en_US: PASSWORD
+      zh_Hans: 密码
+    placeholder:
+      en_US: Please input your Huawei Cloud GaussDB PASSWORD
+      zh_Hans: 请输入你的 华为云GaussDB 密码
+    required: true
+    type: secret-input
+  DATABASE:
+    label:
+      en_US: DATABASE
+      zh_Hans: 数据库名称
+    placeholder:
+      en_US: Please input your Huawei Cloud GaussDB DATABASE
+      zh_Hans: 请输入你的 华为云GaussDB 数据库名称
+    required: true
+    type: text-input
+tools:
+  - tools/execute.yaml
+extra:
+  python:
+    source: provider/huawei-cloud-gaussdb.py
