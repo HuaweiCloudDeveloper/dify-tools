@@ -41,7 +41,8 @@
 
 | 方案名称           | 描述                                   | 文档                              | 作者 |
 | ------------------| -------------------------------------- | --------------------------------- | ---- |
-| 数字人交互智能问答解决方案   | 该解决方案基于华为云MetaStudio，ModelArts Studio和Dify快速部署数字人交互服务，部署后用户只需简单配置几项关键参数即可直接使用数字人交互服务。 | [详情](solutions/Dify_MetaStudio_Knowledge/README.md) | yuez |
+| 数字人交互智能问答解决方案   | 基于华为云MetaStudio，ModelArts Studio和Dify快速部署数字人交互服务，部署后用户只需简单配置几项关键参数即可直接使用数字人交互服务。 | [详情](solutions/Dify_MetaStudio_Knowledge/README.md) | yuez |
+| Dify DeepSeek单机版部署   | 在华为云上通过零元镜像快速部署单机版本Dify社区版本与DeepSeek的推理服务，构建个人LLM应用开发平台。 | [详情](solutions/Dify_Deepseek/README.md) | yuez |
 
 
 ## 使用须知
