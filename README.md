@@ -45,6 +45,7 @@
 数字人交互智能问答解决方案   | 该解决方案基于华为云数字内容生产线 MetaStudio，ModelArts Studio大模型即服务平台和Dify快速部署数字人交互服务，部署后用户只需简单配置几项关键参数即可直接使用数字人交互服务。 | [详情](solutions/Dify_MetaStudio_Knowledge/README.md) | yuez |
 
 
+
 ## 使用须知
 
 #### 寻求帮助
