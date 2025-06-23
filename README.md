@@ -40,6 +40,7 @@
 | modelarts_deepseek | LLM       | 华为云ModelArts DeepSeek LLM模型提供商 | [插件源码](models/modelarts_deepseek) | yuez |
 
 
+
 ## 使用须知
 
 #### 寻求帮助
