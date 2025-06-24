@@ -15,7 +15,7 @@
 
 #### 工作流示例
 
-| 项目名称            | 描述                                                         | 链接 | 依赖                                                         | 作者 |
+| 案例名称            | 描述                                                         | 链接 | 依赖                                                         | 作者 |
 | ------------------- | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | :--: |
 | 华为云OBS上传示例 | 提供华为云OBS上传的示例,前提:对象桶已创建 | [DSL](workflow/obs_example/huawei_cloud_obs_upload_example.yml)    | huawei-cloud-obs | yuez |
 | 华为云OBS下载示例 | 提供华为云OBS下载的示例,前提:对象桶已创建且ACL公共可读 | [DSL](workflow/obs_example/huawei_cloud_obs_download_example.yml)    | huawei-cloud-obs | yuez |
@@ -39,10 +39,10 @@
 
 #### 解决方案
 
-| 模型名称           | 描述                                   | 部署文档                              | 作者 |
-| ------------------  | -------------------------------------- | ------------------------------------- | ---- |
-| 
-数字人交互智能问答解决方案   | 该解决方案基于华为云数字内容生产线 MetaStudio，ModelArts Studio大模型即服务平台和Dify快速部署数字人交互服务，部署后用户只需简单配置几项关键参数即可直接使用数字人交互服务。 | [详情](solutions/Dify_MetaStudio_Knowledge/README.md) | yuez |
+| 方案名称           | 描述                                   | 文档                              | 作者 |
+| ------------------| -------------------------------------- | --------------------------------- | ---- |
+| 数字人交互智能问答解决方案   | 基于华为云MetaStudio，MaaS和Dify快速部署数字人交互服务，部署后用户只需简单配置几项关键参数即可直接使用数字人交互服务。 | [详情](solutions/Dify_MetaStudio_Knowledge/README.md) | yuez |
+| Dify DeepSeek单机版部署   | 在华为云上通过零元镜像快速部署单机版本Dify社区版本与DeepSeek的推理服务，构建个人LLM应用开发平台。 | [详情](solutions/Dify_Deepseek/README.md) | renxl |
 
 
 
