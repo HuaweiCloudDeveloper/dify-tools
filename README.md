@@ -44,7 +44,7 @@
     <td><a href="https://github.com/szlele">yuez</a></td>
   </tr>
    <tr>
-    <td rowspan="1">扩展工具</td>
+    <td rowspan="2">扩展工具</td>
     <td ><a href="tools/huawei-cloud-obs/README.md">Huawei-Cloud-OBS</a></td>
     <td>提供dify工作流中操作华为云OBS的基本操作工具</td>
     <td><a href="https://github.com/szlele">yuez</a></td>
