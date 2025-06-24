@@ -1,0 +1,106 @@
+{
+    "i18n": {
+        "zh_cn": [
+            {
+                "variable_name": "admin_password",
+                "localization": {
+                    "variable_name": "ECS实例密码",
+                    "description": "ECS实例的管理员密码，密码复杂度要求：密码要求长度范围为8到26位，密码至少必须包含大写字母、小写字母、数字和特殊字符（!@$%^-_=+[{}]:,./?）中的三种！",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "instance_flavor_cpu",
+                "localization": {
+                    "variable_name": "实例cpu规格",
+                    "description": "设置cpu.（注意：填写参数需要满足商品要求且符合实际ECS鲲鹏架构的鲲鹏通用计算增强型服务器规格）",
+                    "type": "number"
+                }
+            },
+            {
+                "variable_name": "instance_flavor_memory",
+                "localization": {
+                    "variable_name": "实例内存规格",
+                    "description": "设置内存大小.（注意：填写参数需要满足商品要求且符合实际ECS鲲鹏架构的鲲鹏通用计算增强型服务器规格）",
+                    "type": "number"
+                }
+            },
+
+            {
+                "variable_name": "ecs_volume_size",
+                "localization": {
+                    "variable_name": "系统盘大小",
+                    "description": "设置系统盘大小（至少40G，默认40G）. ",
+                    "type": "number"
+                }
+            },
+            {
+                "variable_name": "data_disk_size",
+                "localization": {
+                    "variable_name": "数据盘大小",
+                    "description": "设置挂载的数据盘大小。若不需要数据盘，可设置值为0，可根据实际情况配置。",
+                    "type": "number"
+                }
+            },
+            {
+                "variable_name": "Version",
+                "localization": {
+                    "variable_name": "版本",
+                    "description": "选择版本",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "vpc_cidr",
+                "localization": {
+                    "variable_name": "vpc IPv4网段",
+                    "description": "取值范围 10.0.0.0/8 to 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "vpc_subnet_cidr",
+                "localization": {
+                    "variable_name": "子网IPv4网段",
+                    "description": "必须是CIDR格式，且在VPC的CIDR块内。子网掩码不能大于28。",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "vpc_subnet_gateway_ip",
+                "localization": {
+                    "variable_name": "子网的网关",
+                    "description": "子网的网关。必须是子网段内的合法IP地址",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "charging_mode",
+                "localization": {
+                    "variable_name": "付费类型(不包含应用防火墙)",
+                    "description": "prePaid-预付费，即包年包月; postPaid-后付费，即按需付费",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "period_unit",
+                "localization": {
+                    "variable_name": "订购周期类型(不包含应用防火墙)",
+                    "description": "当chargingMode为prePaid时生效且为必填值，取值范围：month-月，year-年",
+                    "type": "字符串"
+                }
+            },
+            {
+                "variable_name": "period",
+                "localization": {
+                    "variable_name": "订购周期数(不包含应用防火墙)",
+                    "description": "当chargingMode为prePaid时生效且为必填值，取值范围：periodType=month（周期类型为月）时，取值为[1，9]，periodType=year（周期类型为年）时，取值为[1，3]",
+                    "type": "字符串"
+                }
+            }
+            
+              
+            
+        ]
+    }
+}

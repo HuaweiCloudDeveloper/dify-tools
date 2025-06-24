@@ -45,6 +45,7 @@
 | Dify DeepSeek单机版部署   | 在华为云上通过零元镜像快速部署单机版本Dify社区版本与DeepSeek的推理服务，构建个人LLM应用开发平台。 | [详情](solutions/Dify_Deepseek/README.md) | yuez |
 
 
+
 ## 使用须知
 
 #### 寻求帮助
