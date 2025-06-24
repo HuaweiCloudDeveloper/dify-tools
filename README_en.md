@@ -42,9 +42,14 @@ This repository provides the source code of some plug-ins connected to HUAWEI CL
 <td><a href="https://github.com/szlele">yuez</a></td>
 </tr>
 <tr>
-<td rowspan="1">Extension Tools</td>
-<td ><a href="tools/huawei-cloud-obs"> OBS Tool</a></td>
+<td rowspan="2">Extension Tools</td>
+<td ><a href="tools/huawei-cloud-obs/README.md"> OBS Tool</a></td>
 <td>Provides basic tools for performing operations on HUAWEI CLOUD OBS in the dify workflow.</td>
+<td><a href="https://github.com/szlele">yuez</a></td>
+</tr>
+<tr>
+<td ><a href="tools/huawei-cloud-gaussdb/README.md"> GaussDB Tool</a></td>
+<td>Provides basic tools for performing operations on HUAWEI CLOUD GaussDB in the dify workflow.</td>
 <td><a href="https://github.com/szlele">yuez</a></td>
 </tr>
 <tr>
@@ -60,8 +65,8 @@ This repository provides the source code of some plug-ins connected to HUAWEI CL
 </tr>
 <tr>
 <td rowspan="1">Model Supplier</td>
-<td ><a href="tools/huawei-cloud-obs">Modelarts_deepseek</a></td>
-<td>HUAWEI CLOUD ModelArts DeepSeek LLM Model Provider</td>
+<td ><a href="models/maas_deepseek/README.md">MaaS_deepseek</a></td>
+<td>HUAWEI CLOUD MaaS DeepSeek LLM Model Provider</td>
 <td><a href="https://github.com/szlele">yuez</a></td>
 </tr>
 </table>

@@ -45,8 +45,13 @@
   </tr>
    <tr>
     <td rowspan="1">扩展工具</td>
-    <td ><a href="tools/huawei-cloud-obs">华为云对象存储(OBS)工具</a></td>
-    <td>提供dify工作流中操作华为云对象存储的基本操作工具</td>
+    <td ><a href="tools/huawei-cloud-obs/README.md">Huawei-Cloud-OBS</a></td>
+    <td>提供dify工作流中操作华为云OBS的基本操作工具</td>
+    <td><a href="https://github.com/szlele">yuez</a></td>
+  </tr>
+  <tr>
+    <td ><a href="tools/huawei-cloud-gaussdb/README.md">Huawei-Cloud-GaussDB</a></td>
+    <td>提供dify工作流中操作华为云GaussDB的基本操作工具</td>
     <td><a href="https://github.com/szlele">yuez</a></td>
   </tr>
   <tr>
@@ -62,8 +67,8 @@
   </tr>
   <tr>
     <td rowspan="1">模型供应商</td>
-    <td ><a href="tools/huawei-cloud-obs">Modelarts_deepseek</a></td>
-    <td>华为云ModelArts DeepSeek LLM模型提供商</td>
+    <td ><a href="models/maas_deepseek/README.md">MaaS_deepseek</a></td>
+    <td>华为云MaaS DeepSeek LLM模型提供商</td>
     <td><a href="https://github.com/szlele">yuez</a></td>
   </tr>
 </table>
