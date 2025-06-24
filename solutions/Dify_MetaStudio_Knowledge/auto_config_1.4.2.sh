@@ -63,14 +63,14 @@ fi
 
 llm_attempt=0
 llm_max_num=5
-llm_retry_interval=10
+llm_retry_interval=5
 while [ $llm_attempt -lt $llm_max_num ]; do
     llm_attempt=$((llm_attempt + 1))
     echo "第 $llm_attempt 次尝试配置llm模型..."
 
     # 配置llm模型
     llm_model_response=$(
-        curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/openai_api_compatible/models" \
+        curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/langgenius/openai_api_compatible/openai_api_compatible/models" \
             -H "Authorization: Bearer $access_token" \
             -H "Content-Type: application/json" \
             -d '{
@@ -79,7 +79,7 @@ while [ $llm_attempt -lt $llm_max_num ]; do
                     "credentials": {
                         "mode": "chat",
                         "context_size": "32768",
-                        "max_tokens_to_sample": "32768",
+                        "max_tokens_to_sample": "4096",
                         "agent_though_support": "not_supported",
                         "function_calling_type": "no_call",
                         "stream_function_calling": "not_supported",
@@ -88,6 +88,7 @@ while [ $llm_attempt -lt $llm_max_num ]; do
                         "stream_mode_delimiter": "\\n\\n",
                         "voices": "alloy",
                         "endpoint_url": "'$LLM_ENDPOINT_URL'",
+                        "display_name": "'$LLM_MODEL'",
                         "api_key": "'$LLM_API_KEY'"
                     },
                     "load_balancing": {
@@ -116,15 +117,25 @@ done
 
 # 配置embedding模型
 embedding_model_response=$(
-    curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/ollama/models" \
+    curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/langgenius/openai_api_compatible/openai_api_compatible/models" \
         -H "Authorization: Bearer $access_token" \
         -H "Content-Type: application/json" \
         -d '{
                 "model": "bge-m3",
                 "model_type": "text-embedding",
                 "credentials": {
+                    "mode": "chat",
                     "context_size": "8192",
-                    "base_url": "http://'"$MODE_SERVER_HOST"':11434"
+                    "max_tokens_to_sample": "4096",
+                    "agent_though_support": "not_supported",
+                    "function_calling_type": "no_call",
+                    "stream_function_calling": "not_supported",
+                    "vision_support": "no_support",
+                    "structured_output_support": "not_supported",
+                    "stream_mode_delimiter": "\\n\\n",
+                    "voices": "alloy",
+                    "display_name": "bge-m3",
+                    "endpoint_url": "http://'$MODE_SERVER_HOST':8081/v1"
                 },
                 "load_balancing": {
                     "enabled": false,
@@ -142,17 +153,25 @@ fi
 
 # 配置rerank模型
 rerank_model_response=$(
-    curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/xinference/models" \
+    curl -s -X POST "http://$URL/console/api/workspaces/current/model-providers/langgenius/openai_api_compatible/openai_api_compatible/models" \
         -H "Authorization: Bearer $access_token" \
         -H "Content-Type: application/json" \
         -d '{
                 "model": "bge-reranker-v2-m3",
                 "model_type": "rerank",
                 "credentials": {
-                    "invoke_timeout": "60",
-                    "max_retries": "3",
-                    "model_uid": "bge-reranker-v2-m3",
-                    "server_url": "http://'$MODE_SERVER_HOST':9997"
+                    "mode": "chat",
+                    "context_size": "8192",
+                    "max_tokens_to_sample": "4096",
+                    "agent_though_support": "not_supported",
+                    "function_calling_type": "no_call",
+                    "stream_function_calling": "not_supported",
+                    "vision_support": "no_support",
+                    "structured_output_support": "not_supported",
+                    "stream_mode_delimiter": "\\n\\n",
+                    "voices": "alloy",
+                    "endpoint_url": "http://'$MODE_SERVER_HOST':8082",
+                    "display_name": "bge-reranker-v2-m3"
                 },
                 "load_balancing": {
                     "enabled": false,
@@ -176,15 +195,15 @@ default_model_provider_response=$(
         -d '{   
                 "model_settings": [{ 
                         "model_type": "llm",
-                        "provider": "openai_api_compatible",
-                        "model": '"$LLM_MODEL"'
+                        "provider": "langgenius/openai_api_compatible/openai_api_compatible",
+                        "model": "'$LLM_MODEL'"
                     }, {
                         "model_type": "text-embedding",
-                        "provider": "openai_api_compatible",
+                        "provider": "langgenius/openai_api_compatible/openai_api_compatible",
                         "model": "bge-m3"
                     }, {
                         "model_type": "rerank",
-                        "provider": "openai_api_compatible",
+                        "provider": "langgenius/openai_api_compatible/openai_api_compatible",
                         "model": "bge-reranker-v2-m3"
                     }, {
                         "model_type": "speech2text"
@@ -204,10 +223,10 @@ fi
 
 # 配置联网搜索服务
 searxng_response=$(
-    curl -s -X POST "http://$URL/console/api/workspaces/current/tool-provider/builtin/searxng/update" \
+    curl -s -X POST "http://$URL/console/api/workspaces/current/tool-provider/builtin/langgenius/searxng/searxng/update" \
         -H "Authorization: Bearer $access_token" \
         -H "Content-Type: application/json" \
-        -d '{"credentials":{"searxng_base_url":"http://'"$URL"':8080"}}'
+        -d '{"credentials":{"searxng_base_url":"http://'"$URL"':8083"}}'
 )
 
 if ! echo "$searxng_response" | grep -q '"result": "success"'; then
