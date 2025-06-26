@@ -37,3 +37,5 @@ uv run main.py
 uvicorn main:app --host 0.0.0.0 --port 8080
 ```
 
+
+[创建数字人智能交互对话项目](https://support.huaweicloud.com/usermanual-metastudio/metastudio_05_0111.html)
