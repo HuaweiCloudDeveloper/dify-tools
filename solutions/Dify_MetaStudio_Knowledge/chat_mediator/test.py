@@ -110,6 +110,10 @@ async def test4():
         ) as resp:       
             print(await resp.json())
 
+async def verfy():
+    String appKey = "huawei_metaStudio";
+    URI uri = URI.create("https://metastudio-llm/digital-human/chat");
+    
 
 if __name__ == "__main__":
     asyncio.run(test4())

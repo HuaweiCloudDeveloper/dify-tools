@@ -5,7 +5,6 @@ import aiohttp
 from aiohttp import StreamReader
 import json
 import logging
-import uvicorn
 from chat_models import MetaReq,MetaRespChunk
 from redis_client import RedisClient
 from chat_config import Config
@@ -149,4 +148,5 @@ async def health_check():
 
 
 if __name__ == '__main__':
+    import uvicorn
     uvicorn.run(app=app,host="0.0.0.0",port=8000)

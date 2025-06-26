@@ -6,10 +6,10 @@
 
 ## 流程图
 
-![数字人业务流程图](solutions/Dify_MetaStudio_Knowledge/.assets/20250625_104155.png)
+![数字人业务流程图](.assets/20250625_104155.png)
 
 
-![Dify问答工作流](solutions/Dify_MetaStudio_Knowledge/.assets/20250625_104645.png)
+![Dify问答工作流](.assets/20250625_104645.png)
 
 ## 方案优势
 - 开箱即用：快速部署，用户只需填写必要参数，几个步骤即可使用智能数字人交互解决方案。
@@ -21,12 +21,12 @@
 
 
 ## 构建指南
-详见 [构建指南](solutions/Dify_MetaStudio_Knowledge/build.md)
+详见 [构建指南](build.md)
 
 
 ## 部署指南
-详见 [部署指南](solutions/Dify_MetaStudio_Knowledge/deploy.md)
+详见 [部署指南](deploy.md)
 
 
 ## 使用指南
-详见 [使用指南](solutions/Dify_MetaStudio_Knowledge/usage.md)
+详见 [使用指南](usage.md)
