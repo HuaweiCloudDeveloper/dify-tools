@@ -1,13 +1,13 @@
-from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import StreamingResponse,JSONResponse
+from fastapi import FastAPI, Request, HTTPException,Depends
+from fastapi.responses import StreamingResponse
 from fastapi.concurrency import asynccontextmanager
 import aiohttp
-from aiohttp import StreamReader
 import json
 import logging
 from chat_models import MetaReq,MetaRespChunk
 from redis_client import RedisClient
 from chat_config import Config
+from chat_verify import chat_verify
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -116,7 +116,7 @@ async def to_blocking(meta_req: MetaReq):
                 ]
             }
 
-@app.post("/chat")
+@app.post("/chat",dependencies=[Depends(chat_verify)])
 async def chat(meta_req: MetaReq,request: Request):
     """处理MetaStudio系统请求"""
     try:
@@ -141,11 +141,6 @@ async def chat(meta_req: MetaReq,request: Request):
                 "error_msg": str(e)
             }
         )
-    
-@app.get("/health")
-async def health_check():
-    return {"status": "ok"}
-
 
 if __name__ == '__main__':
     import uvicorn
