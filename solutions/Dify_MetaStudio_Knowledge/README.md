@@ -4,22 +4,27 @@
 
 ## 架构图
 
+## 流程图
+
+![数字人业务流程图](.assets/20250625_104155.png)
+
+
+![Dify问答工作流](.assets/20250625_104645.png)
 
 ## 方案优势
 - 开箱即用：快速部署，用户只需填写必要参数，几个步骤即可使用智能数字人交互解决方案。
 - 低成本：提供高性价比的云服务器，用户可以根据实际需求自定义不同规格的云服务器。
 - 一键部署：一键轻松部署，即可完成智能数字人交互解决方案搭建。免去用户注册及复杂的配置。
 
-## 方案说明
 
 
 ## 构建指南
-详见 [构建指南](solutions/Dify_MetaStudio_Knowledge/build.md)
+详见 [构建指南](build.md)
 
 
 ## 部署指南
-详见 [部署指南](solutions/Dify_MetaStudio_Knowledge/deploy.md)
+详见 [部署指南](deploy.md)
 
 
 ## 使用指南
-详见 [使用指南](solutions/Dify_MetaStudio_Knowledge/usage.md)
+详见 [使用指南](usage.md)

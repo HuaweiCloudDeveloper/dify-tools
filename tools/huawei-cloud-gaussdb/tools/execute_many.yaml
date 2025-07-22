@@ -1,0 +1,37 @@
+identity:
+  name: execute
+  author: yuez
+  label:
+    en_US: execute
+    zh_Hans: 执行SQL
+description:
+  human:
+    en_US: execute
+    zh_Hans: 执行SQL
+  llm: 提供华为云GaussDB服务执行SQL操作。
+parameters:
+  - name: sql
+    type: string
+    required: true
+    label:
+      en_US: sql
+      zh_Hans: SQL
+    human_description:
+      en_US: sql
+      zh_Hans: SQL语句
+    llm_description: SQL语句
+    form: llm
+  - name: value
+    type: string
+    required: true
+    label:
+      en_US: value
+      zh_Hans: SQL数据
+    human_description:
+      en_US: value
+      zh_Hans: SQL数据
+    llm_description: SQL数据
+    form: llm
+extra:
+  python:
+    source: tools/execute.py
